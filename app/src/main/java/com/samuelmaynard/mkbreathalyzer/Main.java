@@ -50,19 +50,21 @@ public class Main extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 Log.i("Main", "rating: " + rating);
-                String bac = bacs[(int)rating - 1];
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Main.this);
-                alertDialogBuilder.setMessage(bac)
-                        .setCancelable(true)
-                        .setPositiveButton("back", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
+                if ((int)rating != 0) {
+                    String bac = bacs[(int) rating - 1];
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Main.this);
+                    alertDialogBuilder.setMessage(bac)
+                            .setCancelable(true)
+                            .setPositiveButton("back", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
 
-                AlertDialog alert = alertDialogBuilder.create();
-                alert.show();
+                    AlertDialog alert = alertDialogBuilder.create();
+                    alert.show();
+                }
             }
         });
     }
@@ -82,5 +84,10 @@ public class Main extends AppCompatActivity {
             daylight.pause();
             ((ImageButton)view).setImageResource(R.drawable.play);
         }
+    }
+
+    public void goagain(View view) {
+        RatingBar ratingBar =  (RatingBar) findViewById(R.id.ratingBar);
+        ratingBar.setRating(0);
     }
 }
