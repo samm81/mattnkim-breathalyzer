@@ -31,7 +31,7 @@ public class Main extends AppCompatActivity {
             "have you even had a drink?",
             "you're good for another couple shots",
             "you might want to start holding up there cowboy",
-            "put the bailey's down",
+            "put the baileys down",
             "dude I've been patting your head for an hour go to bed"
     };
 
